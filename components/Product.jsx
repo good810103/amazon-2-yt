@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/legacy/image';
 import { StarIcon } from '@heroicons/react/solid';
-import Currency from 'react-currency-formatter';
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
+const poundGBP = Intl.NumberFormat('en-GB',{
+    style: 'currency',
+    currency: 'GBP',
+});
 
 const Product = ({ id, title, price, description, category, image }) => {
     const [rating,setRating] = useState(null);
@@ -35,7 +38,7 @@ const Product = ({ id, title, price, description, category, image }) => {
             <p className='text-xs my-2 line-clamp-2'>{description}</p>
 
             <div className='mt-5'>
-                <Currency quantity={price} currency='GBP' />
+                {poundGBP.format(price)}
             </div>
 
             {hasPrime && (
