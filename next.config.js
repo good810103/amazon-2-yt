@@ -6,6 +6,9 @@ const nextConfig = {
   },
   images: {
     domains: ['links.papareact.com','fakestoreapi.com']
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 }
 
